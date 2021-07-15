@@ -1,0 +1,85 @@
+.quiz--title {
+  font-size: 2rem;
+  margin: 0 auto;
+}
+
+.quiz--body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 4rem;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  min-height: 90vh;
+}
+
+.question--body {
+  margin: 0 auto;
+  font-size: 2rem;
+  width: 100%;
+  padding: 0 2rem;
+}
+.question {
+  text-align: center;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  text-align: left;
+}
+.question--header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 1rem auto;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 1rem;
+  margin: 2rem 0;
+}
+.options div {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.options div p:nth-child(1) {
+  margin: 0;
+  width: 1.5rem;
+}
+.options div p:nth-child(2) {
+  margin: 1rem 0;
+  width: 50%;
+  padding: 0 1rem;
+}
+.options div:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.next {
+  background-color: #51C84D;
+  color: #fff;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  margin: 0 auto;
+  height: 2rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  padding: 0 1rem;
+}
+
+@media screen and (max-width: 760px) {
+  .question--body {
+    font-size: 1.5rem;
+  }
+  .options div p:nth-child(2) {
+    width: 90%;
+  }
+}

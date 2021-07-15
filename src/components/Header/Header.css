@@ -1,0 +1,40 @@
+.Home{
+    height: 90vh;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+}
+
+.main{
+    padding: 3rem; padding-top: 2rem; display: flex; flex-direction: column; justify-content: center;
+}
+.main h1{
+    font-size: 4rem;
+    font-family: 'Roboto';
+}
+.main span{
+    font-size: 1.5rem; margin-top:1rem; padding-left: 0.5rem; line-height: 2.5rem; color: #4b5563;
+    font-family: 'Montserrat';
+}
+
+.brand{
+    display: flex; align-items: center; justify-content:center; flex-direction: column;
+}
+img{
+    width: 400px;
+}
+
+@media only screen and (max-width: 500px  ) {
+    .Home{
+        grid-template-columns: 1fr;
+        align-items: center;
+    }	
+    .main h1{
+        font-size: 2rem;
+    }	
+    .main span{
+        font-size: 1rem;
+    }	
+    .brand img{
+        width: 70%;
+    }
+}
