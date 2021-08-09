@@ -185,13 +185,14 @@ function Quiz() {
 								</div>
 							))}
 						</div>
-					</div>
-				))}
-			{!gameOver && !loading && questionNumber !== TOTAL_QUESTIONS ? (
-				<button className="next" onClick={() => nextQuestion("")}>
+            {!gameOver && !loading && questionNumber !== TOTAL_QUESTIONS ? (
+				<button className="btn btn-primary next" onClick={() => nextQuestion("")}>
 					Next Question
 				</button>
-			) : null}
+			) : <></>}
+					</div>
+				))}
+			
 			{gameOver && (
 				<Result
 					questions={questions}

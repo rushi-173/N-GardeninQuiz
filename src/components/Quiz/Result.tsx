@@ -3,7 +3,6 @@ import { QuestionsState } from "./Quiz";
 import { ImCross } from "react-icons/im";
 import { FaCheck } from "react-icons/fa";
 import "./Result.css";
-
 type ResultProps = {
   questions: QuestionsState[];
   responses: string[];
@@ -16,9 +15,10 @@ function Result({ questions, responses, score, startQuiz }: ResultProps) {
   return (
     <div className="result--container">
       <h1>You scored {(score * 100).toFixed(2)}%</h1>
+      
       <hr style={{ width: "80vw", marginBottom: "2rem" }} />
       {questions.map((que, index) => (
-        <>
+        <div className="question--body">
           <h1 className="question">
             {index + 1}. {que.question}
           </h1>
@@ -33,6 +33,20 @@ function Result({ questions, responses, score, startQuiz }: ResultProps) {
                         : opt === responses[index]
                         ? "red"
                         : "#000",
+                        fontWeight:
+                      opt === que.correct_answer
+                        ? "bold"
+                        : opt === responses[index]
+                        ? "bold"
+                        : "initial",
+                        backgroundColor:
+                      opt === que.correct_answer
+                        ? "#CCFF90"
+                        : opt === responses[index]
+                        ? "#FFCDD2"
+                        : "#fff"
+
+
                   }}
                 >
                   {opt}
@@ -46,7 +60,7 @@ function Result({ questions, responses, score, startQuiz }: ResultProps) {
               </div>
             ))}
           </ol>
-        </>
+        </div>
       ))}
       <button className="btn btn-primary" onClick={startQuiz}>Try Again</button>
     </div>
