@@ -5,8 +5,10 @@ import { useHistory, useNavigate, useLocation } from "react-router-dom";
 import "./Login.css";
 import { Link } from "react-router-dom";
 import Loader from "react-loader-spinner";
+import { useToasts } from 'react-toast-notifications';
 
 function SignIn() {
+  const { addToast } = useToasts();
   const [isLoading, setIsLoading] = useState(false);
   const { auth, setAuth } = useAuth();
   const [error, setError] = useState("");
@@ -14,7 +16,6 @@ function SignIn() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const params = useLocation();
-
   useEffect(() => {
     if(auth){
       navigate("/")
@@ -32,11 +33,12 @@ function SignIn() {
           password: password
         }
       );
-      console.log(res);
+      //console.log(res);
       setIsLoading(false);
       if (!res.data.token) {
         setError(res.data);
       } else {
+        addToast("Login Successful! Let's Explore the App!", {appearance: 'success'});
         setAuth(res.data);
         setAuth((prev) => {
           localStorage.setItem("gquiz-auth", JSON.stringify(prev));
@@ -52,7 +54,8 @@ function SignIn() {
       }
     } catch (err) {
       setIsLoading(false);
-      console.log(err);
+      addToast("err",{appearance: 'error'});
+      //console.log(err);
     }
   }
 
@@ -88,21 +91,28 @@ function SignIn() {
           </div>
           <button className="btn btn-primary btn-login" onClick={handleSignIn}>
             {isLoading ? (
-               
-        <Loader type="TailSpin" color="#fff" height={20} width={20} />
+              <Loader type="TailSpin" color="#fff" height={20} width={20} />
             ) : (
               "Login"
             )}
           </button>
-          <small className="err-msg">{error}</small>
-          <div className="container-space-between btn-login">
+          <button className="btn btn-secondary btn-login" onClick={(e)=>{
+            e.preventDefault()
+            setEmail("test@test.com")
+            setPassword("test123")
+          }} disabled={isLoading}>
+            
+              Use Test Credentials
+          </button>
+
+          <small className="err-msg" style={{color:"red"}}>{error}</small><br/>
+          <div className="container-center btn-login">
+           
             <Link to="/signup">
               <p>Register Now 🚀</p>
             </Link>
-            <p>🤔 Forgot Password?</p>
           </div>
           <hr color="white" width="100%" className="btn-login" />
-          <br />
         </form>
       </div>
     </div>
