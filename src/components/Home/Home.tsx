@@ -71,7 +71,7 @@ function Home() {
 					</button>
           </div>
       {loading && (
-        <Loader type="TailSpin" color="#51c84d" height={100} width={100} />
+        <Loader type="Hearts" color="#51c84d" height={150} width={150} />
       )}
       <div className="home--grid">
         {category.length && category.map((item: Topic) => (

@@ -99,7 +99,7 @@ function SignIn() {
           <button className="btn btn-secondary btn-login" onClick={(e)=>{
             e.preventDefault()
             setEmail("test@test.com")
-            setPassword("test123")
+            setPassword("test12")
           }} disabled={isLoading}>
             
               Use Test Credentials

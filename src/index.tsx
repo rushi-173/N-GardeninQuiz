@@ -8,7 +8,9 @@ import { ScoreProvider } from "./contexts/scoreContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ToastProvider>
+    <ToastProvider autoDismiss
+    autoDismissTimeout={3000}
+    placement="bottom-left">
         <AuthProvider>
           <ScoreProvider>
             <App />
